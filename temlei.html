@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Tem Lei</title>
+<meta name="description" content="Guia para quem sofreu ameaça, crime de ódio, exposição em lista de boicote ou demissão por posição política: como guardar provas e onde denunciar em cada estado.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap">
+<script>
+/* aplica o tema salvo antes de desenhar a página */
+(function(){try{var t=localStorage.getItem('temlei-tema');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();
+</script>
+
+<!-- Pico CSS v2.1.1, tema jade. https://picocss.com · Licença MIT -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2.1.1/css/pico.jade.min.css">
+<style>
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+[hidden]{display:none!important}
+/* =====================================================================
+   Tem Lei · camada própria sobre o Pico CSS v2 (tema jade, licença MIT)
+   Fonte: Figtree (SIL Open Font License).
+   Layout: páginas separadas (rota pelo #). No celular, uma coluna;
+   no computador, roteiro com passos à esquerda e painel fixo à direita.
+   ===================================================================== */
+:root{
+  --pico-font-family-sans-serif:"Figtree", system-ui, "Segoe UI", Roboto, sans-serif;
+  --pico-font-size:100%;
+  --pico-line-height:1.55;
+  --display:"Figtree", system-ui, "Segoe UI", sans-serif;
+  --accent:var(--pico-primary);
+  --accent-ink:var(--pico-primary-inverse);
+  --accent-soft:color-mix(in srgb, var(--pico-primary) 11%, var(--pico-background-color));
+  --surface:var(--pico-card-background-color);
+  --ink:var(--pico-color);
+  --muted:var(--pico-muted-color);
+  --line:var(--pico-muted-border-color);
+  --alert:#b3261e; --alert-soft:#fdecea; --warn-bg:#fff4d9; --warn-ink:#6b4a00;
+  --shell:1160px;
+  --gutter-l:max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(16px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme]){--alert:#ff9b8f;--alert-soft:#3a1d1a;--warn-bg:#2e2510;--warn-ink:#f1cf7c}}
+:root[data-theme="dark"]{--alert:#ff9b8f;--alert-soft:#3a1d1a;--warn-bg:#2e2510;--warn-ink:#f1cf7c}
+body{background:var(--pico-background-color);color:var(--pico-color)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--pico-background-color)}
+
+/* ---------- barra superior ---------- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--pico-background-color);border-bottom:1px solid var(--line);padding:0}
+.bar-in{max-width:var(--shell);margin:0 auto;padding-block:10px;padding-left:var(--gutter-l);padding-right:var(--gutter-r);display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px}
+.brand{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.01em;text-decoration:none;color:var(--ink)}
+.brand span,h1 span{color:var(--accent)}
+.menu{display:flex;justify-content:flex-start;align-items:center;gap:4px 22px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none;font-weight:600;font-size:15px}
+.menu::-webkit-scrollbar{display:none}
+.menu a{margin:0;text-decoration:none;white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent;color:var(--muted)}
+.menu a[aria-current=page]{color:var(--accent);border-bottom-color:var(--accent)}
+.tema{width:auto;margin:0;display:inline-flex}
+.tema button{font-size:13px;padding:5px 10px;line-height:1.2}
+@media (max-width:640px){
+  .bar-in{gap:6px 12px}
+  .menu{order:3;flex-basis:100%;font-size:14.5px}
+}
+
+/* ---------- ritmo geral ---------- */
+.wrap{max-width:var(--shell);margin:0 auto;padding-block:24px 56px;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+.wrap section{margin:0;padding:0;display:grid;gap:16px;min-width:0}
+.wrap p,.wrap ul,.wrap ol,.wrap dl{margin:0}
+.wrap h1,.wrap h2,.wrap h3{font-family:var(--display);text-wrap:balance;margin:0;color:var(--pico-color)}
+h1{font-weight:800;font-size:clamp(44px,9vw,72px);line-height:.98;letter-spacing:-.03em}
+h2{font-weight:800;font-size:clamp(24px,4.5vw,32px);line-height:1.1;letter-spacing:-.01em}
+h3{font-weight:700;font-size:18px;line-height:1.25}
+p{max-width:68ch}
+.lead{color:var(--muted);font-size:18px}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.num{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.mail{font-weight:700;overflow-wrap:anywhere}
+.mais{margin-top:12px !important}
+
+/* ---------- início ---------- */
+.hero{display:grid;gap:20px;align-items:start}
+.hero-text{display:grid;gap:12px}
+.hero-side{display:grid;gap:12px}
+@media (min-width:900px){
+  .hero{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:48px;padding-block:12px 8px}
+}
+.choices,.more{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (min-width:900px){.more{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:540px){.choices,.more{grid-template-columns:1fr}}
+.choice{display:grid;align-content:start;gap:4px;text-decoration:none;color:var(--ink);background:var(--surface);box-shadow:var(--pico-card-box-shadow);border:1px solid transparent;border-radius:var(--pico-border-radius);padding:16px 18px;min-width:0}
+.choice b{font-family:var(--display);font-weight:700;font-size:18px;line-height:1.25;color:var(--accent)}
+.choice span{font-size:14.5px;color:var(--muted)}
+.choice:hover{border-color:var(--accent)}
+.choice.urgent b{color:var(--alert)}
+.more .choice b{font-size:16.5px}
+
+/* ---------- botões de ação (componentes [role=button] do Pico, compactos) ---------- */
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;align-items:center}
+.acts [role=button]{font-size:14.5px;padding:8px 13px;width:auto;margin:0}
+.acts [role=button][target=_blank]::after{content:" ↗";font-weight:400}
+.acts [role=button].int::after{content:" →";font-weight:400}
+.acts [role=button].pick{border-style:dashed}
+button.copy{font-size:13.5px;padding:4px 10px;width:auto;margin:0}
+
+/* ---------- emergência e estado ---------- */
+.sos{background:var(--alert-soft);border:1px solid var(--alert);border-radius:var(--pico-border-radius);padding:14px 16px;display:grid;gap:4px}
+.sos strong{color:var(--alert);font-size:17px}
+.sos span{font-size:15px}
+.sos-mini{padding:10px 14px}
+.sos-mini strong{font-size:15.5px}
+.estado{background:var(--surface);box-shadow:var(--pico-card-box-shadow);border-radius:var(--pico-border-radius);padding:16px;display:grid;gap:8px}
+.estado label{font-weight:700;margin:0}
+.estado select{margin:0}
+.estado small{color:var(--muted);font-size:14px}
+
+/* ---------- roteiros ---------- */
+.back{font-size:14.5px;font-weight:700;text-decoration:none;justify-self:start}
+.split{display:grid;gap:20px}
+.side{display:grid;gap:12px;align-content:start}
+@media (max-width:899px){.side{order:-1}}
+@media (min-width:900px){
+  .split{grid-template-columns:minmax(0,1fr) 340px;gap:48px;align-items:start}
+  .side{position:sticky;top:84px}
+}
+.law{background:var(--accent-soft);border-radius:var(--pico-border-radius);padding:14px 16px;font-size:15px}
+.law b{display:block;margin-bottom:4px}
+.law a{font-weight:700}
+ol.steps{list-style:none;padding:0;display:grid;counter-reset:s}
+ol.steps>li{counter-increment:s;list-style:none;display:grid;grid-template-columns:36px 1fr;gap:14px;padding:16px 0;margin:0;border-bottom:1px solid var(--line)}
+ol.steps>li:first-child{padding-top:4px}
+ol.steps>li:last-child{border-bottom:0}
+ol.steps>li::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:700;font-size:15px;font-variant-numeric:tabular-nums}
+.step{display:grid;gap:6px;min-width:0}
+.step p{font-size:16px}
+.step .note{font-size:14.5px;color:var(--muted)}
+
+/* ---------- cartões ---------- */
+.cards{display:grid;gap:12px}
+@media (min-width:900px){.cards{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}}
+.parl{display:grid;gap:12px}
+@media (min-width:760px){.parl{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1080px){.parl{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.card{background:var(--surface);box-shadow:var(--pico-card-box-shadow);border-radius:var(--pico-border-radius);padding:16px 18px;display:grid;gap:8px;align-content:start;min-width:0}
+.card ul,.card ol{padding-left:20px;display:grid;gap:6px}
+.card li{max-width:68ch;margin:0}
+.tip{background:var(--warn-bg);color:var(--warn-ink);border-radius:var(--pico-border-radius);padding:12px 14px;font-size:15px}
+.ph{background:var(--warn-bg);color:var(--warn-ink);padding:0 4px;border-radius:3px}
+
+/* ---------- canais ---------- */
+#canais .estado{max-width:520px}
+.uf{background:var(--surface);box-shadow:var(--pico-card-box-shadow);border-radius:var(--pico-border-radius);overflow:hidden}
+.uf-head{background:var(--accent);color:var(--accent-ink);padding:12px 16px;font-family:var(--display);font-weight:700;font-size:18px}
+dl.ch{display:grid}
+@media (min-width:900px){dl.ch{grid-template-columns:repeat(2,minmax(0,1fr))} dl.ch>div:nth-child(2){border-top:0}}
+dl.ch>div{display:grid;grid-template-columns:minmax(0,11em) 1fr;gap:12px;padding:12px 16px;border-top:1px solid var(--line)}
+dl.ch>div:first-child{border-top:0}
+@media (max-width:480px){dl.ch>div{grid-template-columns:1fr;gap:2px}}
+dl.ch dt{font-weight:700;font-size:15px;margin:0}
+dl.ch dd{margin:0;font-size:15px;min-width:0;overflow-wrap:anywhere}
+.nat{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (min-width:900px){.nat{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:540px){.nat{grid-template-columns:1fr}}
+.nat .card h3{font-size:17px}
+.nat .card p{font-size:15px}
+
+/* ---------- glossário ---------- */
+.gidx{display:flex;flex-wrap:wrap;gap:6px}
+.gidx a{font-size:14px;text-decoration:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 11px;color:var(--ink)}
+.gidx a:hover{border-color:var(--accent);color:var(--accent)}
+.gl{display:grid;gap:12px}
+@media (min-width:900px){.gl{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}}
+.wrap article.term{margin:0;padding:16px 18px;display:grid;gap:10px;min-width:0;scroll-margin-top:84px}
+.term-top{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;justify-content:space-between}
+.term h3{font-size:19px}
+.who{font-size:12.5px;font-weight:700;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.who.pub{background:var(--accent-soft);color:var(--accent)}
+.who.rep{background:var(--warn-bg);color:var(--warn-ink)}
+.who.priv{background:var(--alert-soft);color:var(--alert)}
+.who.civ{background:var(--pico-background-color);color:var(--muted);border:1px solid var(--line)}
+.term dl{display:grid;gap:8px}
+.term dl>div{display:grid;grid-template-columns:7.5em 1fr;gap:10px}
+@media (max-width:480px){.term dl>div{grid-template-columns:1fr;gap:0}}
+.term dt{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px;margin:0}
+.term dd{margin:0;font-size:15.5px;min-width:0}
+.term dd.ex{font-style:italic}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:14px;color:var(--muted);align-items:center}
+
+/* ---------- rodapé ---------- */
+.foot{border-top:1px solid var(--line);padding:0;margin:0}
+.foot-in{max-width:var(--shell);margin:0 auto;padding-block:20px 32px;padding-left:var(--gutter-l);padding-right:var(--gutter-r);display:grid;gap:6px;font-size:14px;color:var(--muted)}
+.foot-in div{max-width:90ch}
+@media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="#inicio">Tem <span>Lei</span></a>
+    <nav class="menu" aria-label="Páginas">
+      <a href="#inicio" data-nav="inicio">Início</a>
+      <a href="#provas" data-nav="provas">Provas</a>
+      <a href="#glossario" data-nav="glossario">O que diz a lei</a>
+      <a href="#canais" data-nav="canais">Canais</a>
+      <a href="#parlamentares" data-nav="parlamentares">Parlamentares</a>
+    </nav>
+    <div role="group" class="tema" aria-label="Tema da página">
+      <button type="button" data-tema="auto">Auto</button>
+      <button type="button" data-tema="light">Claro</button>
+      <button type="button" data-tema="dark">Escuro</button>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+<section class="view" id="inicio" aria-labelledby="h-inicio">
+  <div class="hero">
+    <div class="hero-text">
+      <div class="eyebrow">Guia de orientação</div>
+      <h1 id="h-inicio">Tem <span>Lei</span></h1>
+      <p class="lead">Sofreu ameaça, ataque de ódio nas redes, foi exposto em lista de boicote ou perdeu o emprego pela sua posição política? Veja o que fazer, em que ordem, e onde denunciar no seu estado.</p>
+    </div>
+    <div class="hero-side">
+      <div class="sos" role="note">
+  <strong>Está em perigo agora? Ligue <span class="num">190</span>.</strong>
+  <span>Violência contra mulher: <span class="num">180</span>. Direitos humanos, 24 horas: <span class="num">100</span>.</span>
+</div>
+      <div class="estado"><label for="uf-inicio">Seu estado</label><select id="uf-inicio" class="ufsel"><option value="">Escolha o estado</option></select><small>Com o estado escolhido, os botões abrem o boletim de ocorrência online, o Ministério Público e a Defensoria Pública certos.</small></div>
+    </div>
+  </div>
+  <h2>O que está acontecendo?</h2>
+  <div class="choices">
+    <a class="choice urgent" href="#ameaca"><b>Estou sendo ameaçado(a)</b><span>Recebi ameaça por mensagem, nas redes ou pessoalmente.</span></a>
+    <a class="choice" href="#odio"><b>Vi ou sofri ataque de ódio nas redes</b><span>Racismo, racismo contra povos indígenas, xenofobia (ataques a nordestinos, nortistas e outras regiões do Brasil), LGBTfobia, intolerância religiosa.</span></a>
+    <a class="choice" href="#boicote"><b>Meu nome ou negócio está numa lista de boicote</b><span>Listas que marcam pessoas ou comércios pelo voto.</span></a>
+    <a class="choice" href="#trabalho"><b>Fui demitido(a) ou pressionado(a) no trabalho</b><span>Por causa da minha posição política ou do meu voto.</span></a>
+  </div>
+  <h2 class="mais">Também neste guia</h2>
+  <div class="more">
+    <a class="choice" href="#provas"><b>Como guardar provas</b><span>Link, print, gravação de tela e prova com fé pública.</span></a>
+    <a class="choice" href="#glossario"><b>O que diz a lei</b><span>Cada tipo de crime, o artigo, a pena e um exemplo.</span></a>
+    <a class="choice" href="#canais"><b>Canais oficiais</b><span>Polícia, Ministério Público, Defensoria e canais nacionais.</span></a>
+    <a class="choice" href="#parlamentares"><b>Parlamentares</b><span>Mandatos que recebem relatos e cobram providências.</span></a>
+  </div>
+</section>
+
+<section class="view path" id="ameaca" aria-labelledby="h-ameaca" hidden>
+  <a class="back" href="#inicio">← Todas as situações</a>
+  <div class="eyebrow">Roteiro 1</div>
+  <h2 id="h-ameaca">Estou sendo ameaçado(a)</h2>
+  <div class="split">
+    <div class="col-main"><ol class="steps">
+    <li><div class="step"><h3>Se o perigo é imediato, ligue 190</h3><p>Não espere juntar provas. A Polícia Militar atende na hora.</p></div></li>
+    <li><div class="step"><h3>Guarde as provas</h3><p>Não apague a mensagem nem responda. Faça print, copie o link e anote data e hora.</p><div class="acts"><a role="button" class="btn outline secondary int" href="#provas">Como guardar provas</a></div></div></li>
+    <li><div class="step"><h3>Faça o boletim de ocorrência primeiro</h3><p>O BO é o que abre a investigação. Diga que deseja representar contra o autor; é isso que conta para o prazo de 6 meses.</p><p class="note">Se a ameaça for grave ou vier de alguém que sabe onde você mora ou trabalha, prefira ir pessoalmente a uma delegacia, levando as provas.</p><div class="acts"><a role="button" class="btn" data-link="bo" href="#estado">BO online</a></div></div></li>
+    <li><div class="step"><h3>Diga no BO se a ameaça tem motivo de preconceito</h3><p>Se a ameaça cita sua cor, origem, religião, orientação sexual ou identidade de gênero, ela pode ser enquadrada também na Lei do Racismo, que é mais grave. Registre esse detalhe.</p></div></li>
+    <li><div class="step"><h3>Envie ao Ministério Público do seu estado</h3><p>Com o número do BO em mãos, use a ouvidoria ou o atendimento ao cidadão do MP para acompanhar o caso.</p><p class="note">Precisa de orientação jurídica e não pode pagar advogado? A Defensoria Pública atende de graça.</p><div class="acts"><a role="button" class="btn outline" data-link="mp" href="#estado">Ministério Público</a><a role="button" class="btn outline" data-link="dp" href="#estado">Defensoria Pública</a></div></div></li>
+    <li><div class="step"><h3>Se quiser, informe parlamentares</h3><p>Eles podem cobrar providências dos órgãos. Isso não substitui o BO.</p><div class="acts"><a role="button" class="btn outline secondary int" href="#parlamentares">Parlamentares que recebem relatos</a></div></div></li>
+  </ol></div>
+    <aside class="side">
+      <div class="law"><b>Ameaça é crime (art. 147 do Código Penal).</b>Perseguição insistente também (art. 147-A). Nos dois casos, a investigação depende de você pedir. O prazo é de 6 meses a partir do dia em que você descobre quem é o autor. Veja <a href="#g-ameaca">ameaça</a> e <a href="#g-perseguicao">perseguição</a> no glossário.</div>
+      <div class="estado"><label for="uf-ameaca">Seu estado</label><select id="uf-ameaca" class="ufsel"><option value="">Escolha o estado</option></select><small>Com o estado escolhido, os botões abrem o boletim de ocorrência online, o Ministério Público e a Defensoria Pública certos.</small></div>
+      <div class="sos sos-mini" role="note"><strong>Perigo agora? Ligue <span class="num">190</span>.</strong></div>
+    </aside>
+  </div>
+</section>
+
+<section class="view path" id="odio" aria-labelledby="h-odio" hidden>
+  <a class="back" href="#inicio">← Todas as situações</a>
+  <div class="eyebrow">Roteiro 2</div>
+  <h2 id="h-odio">Vi ou sofri ataque de ódio nas redes</h2>
+  <div class="split">
+    <div class="col-main"><ol class="steps">
+    <li><div class="step"><h3>Guarde as provas antes que apaguem</h3><p>O link da publicação e o link do perfil de quem publicou são as provas mais importantes. Depois faça os prints.</p><div class="acts"><a role="button" class="btn outline secondary int" href="#provas">Como guardar provas</a></div></div></li>
+    <li><div class="step"><h3>Denuncie na SaferNet</h3><p>É a Central Nacional de Denúncias de Crimes Cibernéticos, que trabalha em parceria com o Ministério Público Federal. Pode ser anônimo e serve para quem só viu a publicação.</p><div class="acts"><a role="button" class="btn" href="https://www.denuncie.org.br" target="_blank" rel="noopener">Denunciar na SaferNet</a></div></div></li>
+    <li><div class="step"><h3>Se você foi a pessoa atacada, faça o BO</h3><p>Leve ou anexe o link e os prints. Se não houver a opção online para esse crime, vá a uma delegacia; algumas cidades têm delegacia especializada em crimes raciais ou cibernéticos.</p><div class="acts"><a role="button" class="btn outline" data-link="bo" href="#estado">BO online</a></div></div></li>
+    <li><div class="step"><h3>Envie ao Ministério Público</h3><p>O MP do seu estado recebe a notícia do crime. Você também pode enviar ao Ministério Público Federal pelo MPF Serviços, que pede login gov.br.</p><p class="note">Se você foi a vítima e quer orientação jurídica gratuita, procure a Defensoria Pública. Muitas têm núcleos de direitos humanos, igualdade racial ou diversidade.</p><div class="acts"><a role="button" class="btn outline" data-link="mp" href="#estado">Ministério Público</a><a role="button" class="btn outline" href="https://www.mpf.mp.br/mpfservicos" target="_blank" rel="noopener">MPF Serviços</a><a role="button" class="btn outline" data-link="dp" href="#estado">Defensoria Pública</a></div></div></li>
+    <li><div class="step"><h3>Se a vítima é indígena ou um povo indígena</h3><p>Envie também à Funai, pela ouvidoria, e ao Ministério Público Federal, que tem uma área dedicada a povos indígenas. A APIB e as organizações indígenas da sua região podem acompanhar o caso e dar apoio à comunidade.</p><p class="note">Ouvidoria da Funai: <span class="mail">ouvidoria@funai.gov.br</span> · <span class="num">(61) 3247-6308</span></p><div class="acts"><a role="button" class="btn outline" href="https://falabr.cgu.gov.br/web/home" target="_blank" rel="noopener">Ouvidoria da Funai (Fala.BR)</a><a role="button" class="btn outline" href="https://www.mpf.mp.br/mpfservicos" target="_blank" rel="noopener">MPF Serviços</a><a role="button" class="btn outline" href="https://apiboficial.org" target="_blank" rel="noopener">APIB</a></div></div></li>
+    <li><div class="step"><h3>Só depois, denuncie na própria rede social</h3><p>Se a plataforma remover antes de você guardar o link e os prints, a prova se perde.</p></div></li>
+    <li><div class="step"><h3>Se quiser, informe parlamentares</h3><div class="acts"><a role="button" class="btn outline secondary int" href="#parlamentares">Parlamentares que recebem relatos</a></div></div></li>
+  </ol></div>
+    <aside class="side">
+      <div class="law"><b>Racismo é crime, e a pena é maior quando cometido nas redes sociais.</b>A Lei 7.716/1989 pune o preconceito por raça, cor, etnia, religião ou procedência, o que inclui o racismo contra povos indígenas e a xenofobia (ataques a nordestinos, nortistas e outras regiões do Brasil). A injúria racial também está nessa lei. Desde 2019, o STF enquadra a LGBTfobia como racismo. Qualquer pessoa pode denunciar, mesmo sem ser a vítima. Veja <a href="#g-racismo">racismo</a>, <a href="#g-injuria-racial">injúria racial</a>, <a href="#g-indigenas">racismo contra indígenas</a>, <a href="#g-origem">xenofobia</a> e <a href="#g-lgbtfobia">LGBTfobia</a> no glossário.</div>
+      <div class="estado"><label for="uf-odio">Seu estado</label><select id="uf-odio" class="ufsel"><option value="">Escolha o estado</option></select><small>Com o estado escolhido, os botões abrem o boletim de ocorrência online, o Ministério Público e a Defensoria Pública certos.</small></div>
+      <div class="sos sos-mini" role="note"><strong>Perigo agora? Ligue <span class="num">190</span>.</strong></div>
+    </aside>
+  </div>
+</section>
+
+<section class="view path" id="boicote" aria-labelledby="h-boicote" hidden>
+  <a class="back" href="#inicio">← Todas as situações</a>
+  <div class="eyebrow">Roteiro 3</div>
+  <h2 id="h-boicote">Meu nome ou negócio está numa lista de boicote</h2>
+  <div class="split">
+    <div class="col-main"><ol class="steps">
+    <li><div class="step"><h3>Não responda nem compartilhe a lista</h3><p>Repassar a lista, mesmo para denunciar, espalha o dano e pode virar problema para você. Em outubro de 2026, a Justiça Federal na Paraíba condenou por racismo também quem apenas compartilhou uma publicação contra nordestinos.</p></div></li>
+    <li><div class="step"><h3>Guarde as provas</h3><p>A lista, onde ela circulou (nome do grupo ou perfil, quem postou, quem administra), as mensagens hostis que você recebeu e qualquer prejuízo: clientes que cancelaram, queda de movimento, pichação. Anote datas.</p><div class="acts"><a role="button" class="btn outline secondary int" href="#provas">Como guardar provas</a></div></div></li>
+    <li><div class="step"><h3>Se houve ameaça ou hostilidade, faça o BO</h3><p>Diga que deseja representar contra os autores. O prazo é de 6 meses a partir do dia em que você sabe quem são.</p><div class="acts"><a role="button" class="btn" data-link="bo" href="#estado">BO online</a></div></div></li>
+    <li><div class="step"><h3>Envie ao Ministério Público do seu estado</h3><p>Principalmente se a lista atinge muitas pessoas ou comércios da cidade.</p><div class="acts"><a role="button" class="btn outline" data-link="mp" href="#estado">Ministério Público</a></div></div></li>
+    <li><div class="step"><h3>Para pedir indenização, procure ajuda jurídica</h3><p>Um advogado ou a Defensoria Pública do seu estado, se você não puder pagar. No Juizado Especial Cível, causas de até 20 salários mínimos não precisam de advogado.</p><div class="acts"><a role="button" class="btn" data-link="dp" href="#estado">Defensoria Pública</a></div></div></li>
+    <li><div class="step"><h3>Se quiser, informe parlamentares</h3><div class="acts"><a role="button" class="btn outline secondary int" href="#parlamentares">Parlamentares que recebem relatos</a></div></div></li>
+  </ol></div>
+    <aside class="side">
+      <div class="law"><b>Expor pessoas pelo voto pode gerar condenação.</b>Conforme o caso, a lista pode configurar crimes como ameaça ou perseguição, e dá direito a indenização por dano moral (Código Civil, arts. 186 e 927). Em 2025, a Justiça de São Paulo condenou os administradores de um grupo de WhatsApp de Cafelândia por uma lista de boicote a eleitores feita em 2022. Veja <a href="#g-lista">lista de boicote</a> e <a href="#g-honra">calúnia, difamação e injúria</a> no glossário.</div>
+      <div class="estado"><label for="uf-boicote">Seu estado</label><select id="uf-boicote" class="ufsel"><option value="">Escolha o estado</option></select><small>Com o estado escolhido, os botões abrem o boletim de ocorrência online, o Ministério Público e a Defensoria Pública certos.</small></div>
+      <div class="sos sos-mini" role="note"><strong>Perigo agora? Ligue <span class="num">190</span>.</strong></div>
+    </aside>
+  </div>
+</section>
+
+<section class="view path" id="trabalho" aria-labelledby="h-trabalho" hidden>
+  <a class="back" href="#inicio">← Todas as situações</a>
+  <div class="eyebrow">Roteiro 4</div>
+  <h2 id="h-trabalho">Fui demitido(a) ou pressionado(a) no trabalho</h2>
+  <div class="split">
+    <div class="col-main"><ol class="steps">
+    <li><div class="step"><h3>Guarde tudo o que mostra o motivo</h3><p>Mensagens, áudios, e-mails, avisos em grupos da empresa, a carta de demissão e o termo de rescisão. Anote os nomes de quem presenciou. Escreva hoje um relato com datas e o que foi dito.</p><p class="note">Assinar a rescisão e receber as verbas não impede você de questionar a demissão depois.</p><div class="acts"><a role="button" class="btn outline secondary int" href="#provas">Como guardar provas</a></div></div></li>
+    <li><div class="step"><h3>Denuncie ao Ministério Público do Trabalho</h3><p>Pelo site, escolha o estado onde aconteceu. Você pode pedir sigilo dos seus dados. Serve também para ameaças de demissão, rebaixamento ou corte de salário, e para casos com colegas.</p><div class="acts"><a role="button" class="btn" href="https://mpt.mp.br/assedio-eleitoral" target="_blank" rel="noopener">Denunciar ao MPT</a></div><p class="note" data-prt></p></div></li>
+    <li><div class="step"><h3>Procure o sindicato ou um advogado trabalhista</h3><p>Para pedir reintegração ou indenização, é preciso uma ação na Justiça do Trabalho. O prazo é de até 2 anos depois do fim do contrato.</p><p class="note">Sem sindicato e sem condições de pagar advogado? Procure a Defensoria Pública para orientação sobre onde buscar atendimento gratuito.</p><div class="acts"><a role="button" class="btn outline" data-link="dp" href="#estado">Defensoria Pública</a></div></div></li>
+    <li><div class="step"><h3>Se houve ameaça, faça também o BO</h3><div class="acts"><a role="button" class="btn outline" data-link="bo" href="#estado">BO online</a></div></div></li>
+    <li><div class="step"><h3>É servidor(a) público(a)?</h3><p>Perseguição política no serviço público também pode ser levada à ouvidoria do órgão e ao Ministério Público do estado.</p><div class="acts"><a role="button" class="btn outline" data-link="mp" href="#estado">Ministério Público</a></div></div></li>
+    <li><div class="step"><h3>Se quiser, informe parlamentares</h3><div class="acts"><a role="button" class="btn outline secondary int" href="#parlamentares">Parlamentares que recebem relatos</a></div></div></li>
+  </ol></div>
+    <aside class="side">
+      <div class="law"><b>Demitir alguém pela posição política é discriminação.</b>A Constituição protege a liberdade de convicção política, e a Lei 9.029/1995 proíbe a demissão discriminatória. Quem é demitido por isso pode pedir na Justiça do Trabalho a volta ao emprego, com os salários do período, ou o pagamento em dobro da remuneração desse período, além de danos morais. Veja <a href="#g-dispensa">dispensa discriminatória</a> e <a href="#g-assedio">assédio eleitoral</a> no glossário.</div>
+      <div class="estado"><label for="uf-trabalho">Seu estado</label><select id="uf-trabalho" class="ufsel"><option value="">Escolha o estado</option></select><small>Com o estado escolhido, os botões abrem o boletim de ocorrência online, o Ministério Público e a Defensoria Pública certos.</small></div>
+      <div class="sos sos-mini" role="note"><strong>Perigo agora? Ligue <span class="num">190</span>.</strong></div>
+    </aside>
+  </div>
+</section>
+
+<section class="view" id="provas" aria-labelledby="h-provas" hidden>
+  <div class="eyebrow">Para todos os casos</div>
+  <h2 id="h-provas">Como guardar as provas</h2>
+  <p>Faça isso antes de denunciar na rede social ou de confrontar alguém. Publicações somem rápido.</p>
+  <div class="cards">
+    <div class="card">
+      <h3>Nas redes sociais</h3>
+      <ol>
+        <li><b>Copie o link da publicação.</b> No app, toque em "Compartilhar" e depois em "Copiar link".</li>
+        <li><b>Copie o link do perfil</b> de quem publicou. O @ pode mudar; o link do perfil identifica a conta.</li>
+        <li><b>Faça prints</b> que mostrem o nome do perfil, a data e o texto inteiro, sem cortar.</li>
+        <li><b>Grave a tela</b> rolando da publicação até o perfil. Vídeo é mais difícil de contestar que um print.</li>
+        <li><b>Anote</b> o dia e a hora em que viu e se a publicação ainda estava no ar.</li>
+        <li><b>Guarde em dois lugares</b>, por exemplo no celular e num e-mail para você mesmo.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3>No trabalho</h3>
+      <ul>
+        <li>Mensagens, áudios e e-mails de chefes ou colegas sobre política ou voto.</li>
+        <li>Avisos em grupos ou murais da empresa.</li>
+        <li>Carta de demissão, termo de rescisão e contracheques.</li>
+        <li>Nome e contato de quem presenciou.</li>
+        <li>Um relato escrito por você, com datas, feito o quanto antes.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Prova com fé pública</h3>
+      <p>Print sozinho pode ser contestado na Justiça. Para dar mais força à prova, registre o conteúdo num cartório:</p>
+      <ul>
+        <li><b>e-Not Provas</b>, dos cartórios de notas: online, sem ir ao cartório. Pede um certificado digital notarizado, que é gratuito pelo app e-Notariado. O valor segue a tabela do seu estado e costuma ser bem menor que o de uma ata tradicional.</li>
+        <li><b>Ata notarial</b>, feita presencialmente em qualquer cartório de notas.</li>
+      </ul>
+      <div class="acts"><a role="button" class="btn outline" href="https://enotprovas.org.br" target="_blank" rel="noopener">e-Not Provas</a></div>
+    </div>
+  </div>
+  <div class="tip"><b>Não envie a ninguém conteúdo de abuso sexual infantil.</b> Denuncie direto na SaferNet, sem guardar cópia.</div>
+</section>
+
+<section class="view" id="canais" aria-labelledby="h-canais" hidden>
+  <div class="eyebrow">Onde denunciar</div>
+  <h2 id="h-canais">Canais oficiais</h2>
+  <div class="estado"><label for="uf-canais">Escolha o estado</label><select id="uf-canais" class="ufsel"><option value="">Escolha o estado</option></select></div>
+  <div class="uf" id="ufCard">
+    <div class="uf-head" id="ufName">Escolha um estado acima</div>
+    <dl class="ch" id="ufList">
+      <div><dt>Boletim de ocorrência</dt><dd>Polícia Civil do seu estado</dd></div>
+      <div><dt>Ministério Público</dt><dd>MP do seu estado</dd></div>
+      <div><dt>Defensoria Pública</dt><dd>Orientação jurídica gratuita</dd></div>
+      <div><dt>Ministério Público do Trabalho</dt><dd>Procuradoria Regional do Trabalho</dd></div>
+    </dl>
+  </div>
+  <p style="font-size:14px;color:var(--muted)">Nem todo crime pode ser registrado online. Se a opção não aparecer, vá a uma delegacia. No site do Ministério Público, procure "Ouvidoria" ou "Atendimento ao cidadão".</p>
+
+  <h3>Canais nacionais</h3>
+  <div class="nat">
+    <div class="card"><h3>SaferNet</h3><p>Central Nacional de Denúncias de Crimes Cibernéticos, parceira do MPF. Anônima.</p><div class="acts"><a role="button" class="btn outline" href="https://www.denuncie.org.br" target="_blank" rel="noopener">denuncie.org.br</a></div></div>
+    <div class="card"><h3>Disque 100</h3><p>Violações de direitos humanos e discriminação. 24 horas, pode ser anônimo. Ligue <span class="num">100</span> ou use o WhatsApp <span class="num">(61) 99611-0100</span>.</p><div class="acts"><a role="button" class="btn outline" href="https://www.gov.br/mdh/pt-br/ondh" target="_blank" rel="noopener">Atendimento online</a></div></div>
+    <div class="card"><h3>Ministério Público do Trabalho</h3><p>Demissão, ameaça ou pressão no trabalho por posição política ou voto.</p><div class="acts"><a role="button" class="btn outline" href="https://mpt.mp.br/assedio-eleitoral" target="_blank" rel="noopener">mpt.mp.br</a></div></div>
+    <div class="card"><h3>Ministério Público Federal</h3><p>Denúncias e representações pelo MPF Serviços, com login gov.br.</p><div class="acts"><a role="button" class="btn outline" href="https://www.mpf.mp.br/mpfservicos" target="_blank" rel="noopener">MPF Serviços</a></div></div>
+    <div class="card"><h3>Funai</h3><p>Fundação Nacional dos Povos Indígenas. Recebe denúncias pela ouvidoria, na plataforma Fala.BR, ou pelo e-mail <span class="mail">ouvidoria@funai.gov.br</span>.</p><div class="acts"><a role="button" class="btn outline" href="https://falabr.cgu.gov.br/web/home" target="_blank" rel="noopener">Ouvidoria (Fala.BR)</a></div></div>
+    <div class="card"><h3>APIB</h3><p>Articulação dos Povos Indígenas do Brasil, que reúne as organizações indígenas regionais. Acompanha e dá visibilidade a casos de violência contra indígenas.</p><div class="acts"><a role="button" class="btn outline" href="https://apiboficial.org" target="_blank" rel="noopener">apiboficial.org</a></div></div>
+    <div class="card"><h3>Ligue 180</h3><p>Violência contra a mulher, inclusive ameaças e ataques misóginos. 24 horas.</p></div>
+    <div class="card"><h3>Polícia Militar: 190</h3><p>Perigo imediato ou ameaça acontecendo agora.</p></div>
+  </div>
+</section>
+
+<section class="view" id="glossario" aria-labelledby="h-gl" hidden>
+  <div class="eyebrow">Glossário</div>
+  <h2 id="h-gl">O que diz a lei</h2>
+  <p>O que é cada tipo de infração, a base legal, a pena prevista e um exemplo. Os exemplos são situações ilustrativas; quando citamos um caso real, isso está dito. Quem decide o enquadramento de cada caso é a polícia, o Ministério Público e o juiz. Este glossário foi redigido com inteligência artificial e não substitui a orientação de um advogado ou da Defensoria Pública.</p>
+  <nav class="gidx" aria-label="Termos do glossário"><a href="#g-racismo">Racismo</a><a href="#g-injuria-racial">Injúria racial</a><a href="#g-origem">Xenofobia e preconceito de origem</a><a href="#g-lgbtfobia">LGBTfobia</a><a href="#g-religiao">Intolerância religiosa</a><a href="#g-indigenas">Racismo contra povos indígenas</a><a href="#g-ameaca">Ameaça</a><a href="#g-perseguicao">Perseguição</a><a href="#g-constrangimento">Constrangimento ilegal</a><a href="#g-incitacao">Incitação ao crime</a><a href="#g-honra">Calúnia, difamação e injúria</a><a href="#g-lista">Lista de boicote</a><a href="#g-dano">Dano moral</a><a href="#g-dispensa">Dispensa discriminatória</a><a href="#g-assedio">Assédio eleitoral</a></nav>
+  <div class="legend">
+    <span class="who pub">Ação pública</span><span>a polícia e o MP agem sem depender da vítima</span>
+    <span class="who rep">Depende de você</span><span>a vítima precisa pedir em até 6 meses</span>
+    <span class="who priv">Precisa de advogado</span><span>a vítima entra com queixa-crime em até 6 meses</span>
+    <span class="who civ">Cível ou trabalhista</span><span>indenização ou reintegração, não prisão</span>
+  </div>
+
+  <h3>Crimes de ódio e discriminação</h3>
+  <div class="gl">
+    <article class="term" id="g-racismo">
+      <div class="term-top"><h3>Racismo</h3><span class="who pub">Ação pública</span></div>
+      <dl>
+        <div><dt>O que é</dt><dd>Praticar, induzir ou incitar discriminação ou preconceito contra um grupo por raça, cor, etnia, religião ou procedência. Atinge a coletividade, não uma pessoa só.</dd></div>
+        <div><dt>Base legal</dt><dd>Lei 7.716/1989, art. 20. Constituição, art. 5º, XLII: é inafiançável e imprescritível.</dd></div>
+        <div><dt>Pena</dt><dd>Reclusão de 1 a 3 anos e multa. Nas redes sociais ou na internet, reclusão de 2 a 5 anos e multa (art. 20, § 2º).</dd></div>
+        <div><dt>Exemplo</dt><dd class="ex">Um perfil publica que pessoas negras de um bairro "não deveriam ter direito de votar" e pede que sejam expulsas da cidade.</dd></div>
+      </dl>
+    </article>
+
+    <article class="term" id="g-injuria-racial">
+      <div class="term-top"><h3>Injúria racial</h3><span class="who pub">Ação pública</span></div>
+      <dl>
+        <div><dt>O que é</dt><dd>Ofender a dignidade de uma pessoa específica por causa da sua raça, cor, etnia ou procedência. Desde 2023 tem a mesma gravidade do racismo.</dd></div>
+        <div><dt>Base legal</dt><dd>Lei 7.716/1989, art. 2º-A, incluído pela Lei 14.532/2023.</dd></div>
+        <div><dt>Pena</dt><dd>Reclusão de 2 a 5 anos e multa.</dd></div>
+        <div><dt>Exemplo</dt><dd class="ex">Alguém comenta na foto de uma eleitora chamando-a por um termo racista e dizendo que ela "votou assim por ser" daquela cor.</dd></div>
+      </dl>
+    </article>
+
+    <article class="term" id="g-origem">
+      <div class="term-top"><h3>Xenofobia e preconceito de origem</h3><span class="who pub">Ação pública</span></div>
+      <dl>
+        <div><dt>O que é</dt><dd>Discriminar ou ofender alguém por causa da origem: outro país ou outra região do Brasil (ataques a nordestinos, nortistas e outras regiões do Brasil). Esses ataques costumam crescer depois de eleições.</dd></div>
+        <div><dt>Base legal</dt><dd>Lei 7.716/1989, arts. 20 (contra o grupo) e 2º-A (contra uma pessoa), no termo "procedência nacional".</dd></div>
+        <div><dt>Pena</dt><dd>As mesmas do racismo e da injúria racial.</dd></div>
+        <div><dt>Exemplo</dt><dd class="ex">Após o resultado, uma pessoa posta que "nordestino não sabe votar" e sugere que a região deixe de receber recursos. Caso real: em outubro de 2026, a Justiça Federal na Paraíba condenou a 2 anos de reclusão, trocados por serviços à comunidade, o autor de um post contra nordestinos e também quem só o compartilhou.</dd></div>
+      </dl>
+    </article>
+
+    <article class="term" id="g-lgbtfobia">
+      <div class="term-top"><h3>LGBTfobia</h3><span class="who pub">Ação pública</span></div>
+      <dl>
+        <div><dt>O que é</dt><dd>Discriminação, incitação ao ódio ou ofensa por orientação sexual ou identidade de gênero.</dd></div>
+        <div><dt>Base legal</dt><dd>Supremo Tribunal Federal, ADO 26 e MI 4733 (2019): enquadra a homotransfobia na Lei 7.716/1989 até que o Congresso aprove lei própria. Em 2023, o STF decidiu que ofensas a uma pessoa LGBT+ também podem ser injúria racial.</dd></div>
+        <div><dt>Pena</dt><dd>As mesmas do racismo e da injúria racial.</dd></div>
+        <div><dt>Exemplo</dt><dd class="ex">Um post diz que "gays e trans destruíram o país" e convoca os comerciantes da cidade a não atender clientes LGBT.</dd></div>
+      </dl>
+    </article>
+
+    <article class="term" id="g-religiao">
+      <div class="term-top"><h3>Intolerância religiosa</h3><span class="who pub">Ação pública</span></div>
+      <dl>
+        <div><dt>O que é</dt><dd>Discriminar um grupo pela religião, impedir cultos, ou ofender uma pessoa pela fé dela.</dd></div>
+        <div><dt>Base legal</dt><dd>Lei 7.716/1989, art. 20 (contra o grupo) e § 2º-B (impedir ou atacar manifestações religiosas). Código Penal, art. 140, § 3º (injúria por religião, que depende de representação) e art. 208 (perturbar culto).</dd></div>
+        <div><dt>Pena</dt><dd>Racismo religioso: reclusão de 1 a 3 anos e multa, ou 2 a 5 anos nas redes. Injúria por religião: reclusão de 1 a 3 anos e multa.</dd></div>
+        <div><dt>Exemplo</dt><dd class="ex">Um grupo de mensagens convoca pessoas a fechar um terreiro de candomblé "porque ali só vota em quem não presta".</dd></div>
+      </dl>
+    </article>
+
+    <article class="term" id="g-indigenas">
+      <div class="term-top"><h3>Racismo contra povos indígenas</h3><span class="who pub">Ação pública</span></div>
+      <dl>
+        <div><dt>O que é</dt><dd>Discriminar, incitar ódio ou ofender pessoas ou comunidades indígenas por sua etnia, ou zombar de rituais, costumes e tradições indígenas.</dd></div>
+        <div><dt>Base legal</dt><dd>Lei 7.716/1989, art. 20 (contra o povo ou grupo) e art. 2º-A (contra uma pessoa), pelo critério "etnia". Estatuto do Índio (Lei 6.001/1973), art. 58, I: escarnecer de cerimônia, rito, costume ou tradição indígena. Constituição, art. 231: reconhece a organização social, os costumes e as tradições dos povos indígenas.</dd></div>
+        <div><dt>Pena</dt><dd>Racismo: reclusão de 1 a 3 anos e multa, ou de 2 a 5 anos nas redes. Injúria racial: reclusão de 2 a 5 anos e multa. Escárnio de ritual: detenção de 1 a 3 meses.</dd></div>
+        <div><dt>Quem apura</dt><dd>Em regra, a Polícia Civil e o MP do estado (STJ, Súmula 140). Quando o caso envolve direitos coletivos de um povo, como território ou cultura, passa à Polícia Federal e ao Ministério Público Federal (Constituição, art. 109, XI).</dd></div>
+        <div><dt>Exemplo</dt><dd class="ex">Um vídeo debocha de um ritual e diz que "índio não deveria ter direito a voto", marcando lideranças de uma aldeia da região.</dd></div>
+      </dl>
+    </article>
+  </div>
+
+  <h3>Ameaças e intimidação</h3>
+  <div class="gl">
+    <article class="term" id="g-ameaca">
+      <div class="term-top"><h3>Ameaça</h3><span class="who rep">Depende de você</span></div>
+      <dl>
+        <div><dt>O que é</dt><dd>Prometer, por palavra, escrito ou gesto, causar a alguém um mal injusto e grave.</dd></div>
+        <div><dt>Base legal</dt><dd>Código Penal, art. 147. Contra mulher por razões da condição de mulher, a pena dobra e o caso não depende de representação (Lei 14.994/2024).</dd></div>
+        <div><dt>Pena</dt><dd>Detenção de 1 a 6 meses, ou multa.</dd></div>
+        <div><dt>Exemplo</dt><dd class="ex">"A gente sabe onde fica sua loja. Votou errado, vai pagar caro", enviado por mensagem.</dd></div>
+      </dl>
+    </article>
+
+    <article class="term" id="g-perseguicao">
+      <div class="term-top"><h3>Perseguição</h3><span class="who rep">Depende de você</span></div>
+      <dl>
+        <div><dt>O que é</dt><dd>Perseguir alguém de forma repetida, por qualquer meio, ameaçando sua integridade, restringindo sua liberdade ou invadindo sua privacidade. Também chamado de stalking.</dd></div>
+        <div><dt>Base legal</dt><dd>Código Penal, art. 147-A, incluído pela Lei 14.132/2021.</dd></div>
+        <div><dt>Pena</dt><dd>Reclusão de 6 meses a 2 anos e multa. Aumenta pela metade contra criança, adolescente, idoso ou mulher por ser mulher, ou se feita por duas ou mais pessoas.</dd></div>
+        <div><dt>Exemplo</dt><dd class="ex">Perfis diferentes marcam a mesma pessoa todos os dias com fotos da casa dela e do carro, desde o dia da eleição.</dd></div>
+      </dl>
+    </article>
+
+    <article class="term" id="g-constrangimento">
+      <div class="term-top"><h3>Constrangimento ilegal</h3><span class="who pub">Ação pública</span></div>
+      <dl>
+        <div><dt>O que é</dt><dd>Obrigar alguém, com violência ou grave ameaça, a fazer o que a lei não manda ou a deixar de fazer o que a lei permite.</dd></div>
+        <div><dt>Base legal</dt><dd>Código Penal, art. 146.</dd></div>
+        <div><dt>Pena</dt><dd>Detenção de 3 meses a 1 ano, ou multa.</dd></div>
+        <div><dt>Exemplo</dt><dd class="ex">Um grupo cerca um comerciante e exige que ele apague uma publicação sobre o voto dele, sob ameaça de quebrar a loja.</dd></div>
+      </dl>
+    </article>
+
+    <article class="term" id="g-incitacao">
+      <div class="term-top"><h3>Incitação ao crime</h3><span class="who pub">Ação pública</span></div>
+      <dl>
+        <div><dt>O que é</dt><dd>Estimular publicamente que outras pessoas cometam um crime.</dd></div>
+        <div><dt>Base legal</dt><dd>Código Penal, art. 286. Se a incitação é à discriminação ou ao preconceito, vale o art. 20 da Lei 7.716/1989.</dd></div>
+        <div><dt>Pena</dt><dd>Detenção de 3 a 6 meses, ou multa.</dd></div>
+        <div><dt>Exemplo</dt><dd class="ex">Um post chama as pessoas a "dar uma lição" em quem foi comemorar o resultado na praça.</dd></div>
+      </dl>
+    </article>
+  </div>
+
+  <h3>Exposição e ofensas</h3>
+  <div class="gl">
+    <article class="term" id="g-honra">
+      <div class="term-top"><h3>Calúnia, difamação e injúria</h3><span class="who priv">Precisa de advogado</span></div>
+      <dl>
+        <div><dt>O que é</dt><dd><b>Calúnia:</b> acusar alguém falsamente de um crime. <b>Difamação:</b> atribuir a alguém um fato que ofende sua reputação. <b>Injúria:</b> xingar ou ofender a dignidade de alguém.</dd></div>
+        <div><dt>Base legal</dt><dd>Código Penal, arts. 138, 139 e 140. Quando cometidos ou divulgados nas redes sociais, a pena é aplicada em triplo (art. 141, § 2º). A vítima entra com queixa-crime, por advogado, em até 6 meses (art. 145).</dd></div>
+        <div><dt>Pena</dt><dd>Calúnia: detenção de 6 meses a 2 anos e multa. Difamação: 3 meses a 1 ano e multa. Injúria: 1 a 6 meses, ou multa.</dd></div>
+        <div><dt>Exemplo</dt><dd class="ex">Uma lista circula dizendo que a dona de uma padaria "lava dinheiro para o partido". Sem prova, é calúnia.</dd></div>
+      </dl>
+    </article>
+
+    <article class="term" id="g-lista">
+      <div class="term-top"><h3>Lista de boicote</h3><span class="who civ">Cível ou trabalhista</span></div>
+      <dl>
+        <div><dt>O que é</dt><dd>Não há um crime chamado "lista de boicote". A lista pode envolver outros crimes, como ameaça, perseguição, calúnia, difamação ou incitação, e quase sempre gera direito a indenização por dano moral.</dd></div>
+        <div><dt>Base legal</dt><dd>Constituição, art. 5º, VIII (ninguém pode ser privado de direitos por convicção política) e X (proteção da honra e da imagem). Código Civil, arts. 186 e 927 (quem causa dano tem de reparar).</dd></div>
+        <div><dt>Pena</dt><dd>Indenização, mais as penas dos crimes que existirem no caso.</dd></div>
+        <div><dt>Exemplo</dt><dd class="ex">Um grupo de WhatsApp da cidade divulga nomes de comércios "que votaram errado" e pede que ninguém compre deles. Em 2025, a Justiça de São Paulo condenou os administradores de um grupo de Cafelândia por uma lista desse tipo, com pena de reclusão e indenização a cada vítima.</dd></div>
+      </dl>
+    </article>
+
+    <article class="term" id="g-dano">
+      <div class="term-top"><h3>Dano moral</h3><span class="who civ">Cível ou trabalhista</span></div>
+      <dl>
+        <div><dt>O que é</dt><dd>Indenização em dinheiro por ofensa à honra, à imagem ou à dignidade, mesmo sem prejuízo financeiro.</dd></div>
+        <div><dt>Base legal</dt><dd>Constituição, art. 5º, V e X. Código Civil, arts. 186 e 927.</dd></div>
+        <div><dt>Onde pedir</dt><dd>Juizado Especial Cível: até 20 salários mínimos sem advogado, até 40 com advogado (Lei 9.099/1995). Acima disso, na Justiça comum, com advogado ou Defensoria Pública.</dd></div>
+        <div><dt>Exemplo</dt><dd class="ex">O comerciante exposto na lista perde clientes e recebe mensagens hostis por semanas. Ele pode pedir indenização a quem criou e espalhou a lista.</dd></div>
+      </dl>
+    </article>
+  </div>
+
+  <h3>No trabalho</h3>
+  <div class="gl">
+    <article class="term" id="g-dispensa">
+      <div class="term-top"><h3>Dispensa discriminatória</h3><span class="who civ">Cível ou trabalhista</span></div>
+      <dl>
+        <div><dt>O que é</dt><dd>Demitir alguém por um motivo discriminatório, como a posição política ou o voto.</dd></div>
+        <div><dt>Base legal</dt><dd>Lei 9.029/1995, art. 1º (proíbe discriminação para manter o emprego; a lista de motivos termina em "entre outros") e art. 4º. Constituição, arts. 3º, IV, e 5º, VIII.</dd></div>
+        <div><dt>Consequência</dt><dd>A pessoa escolhe entre voltar ao emprego com os salários do período ou receber em dobro a remuneração do período de afastamento, além de danos morais. Prazo para a ação: até 2 anos após o fim do contrato.</dd></div>
+        <div><dt>Exemplo</dt><dd class="ex">Na segunda-feira depois da eleição, o gerente demite dois funcionários que postaram a foto do voto e diz no grupo da equipe que "aqui não tem lugar para esse tipo de gente".</dd></div>
+      </dl>
+    </article>
+
+    <article class="term" id="g-assedio">
+      <div class="term-top"><h3>Assédio eleitoral</h3><span class="who pub">Ação pública</span></div>
+      <dl>
+        <div><dt>O que é</dt><dd>Nome usado pelo Ministério Público do Trabalho para a pressão do empregador sobre o voto: ameaça de demissão, promessa de prêmio, obrigação de usar camiseta ou ir a ato, retaliação depois do resultado.</dd></div>
+        <div><dt>Base legal</dt><dd>Código Eleitoral, art. 301 (coagir alguém a votar ou não votar, com violência ou grave ameaça). Na esfera trabalhista, Lei 9.029/1995 e Constituição, art. 5º, VIII.</dd></div>
+        <div><dt>Pena</dt><dd>Coação eleitoral: reclusão de até 4 anos e multa. Na Justiça do Trabalho, a empresa pode ser condenada a pagar indenização individual e coletiva.</dd></div>
+        <div><dt>Exemplo</dt><dd class="ex">Antes do segundo turno, o dono da empresa avisa em reunião que "se o candidato X ganhar, metade de vocês vai para a rua".</dd></div>
+      </dl>
+    </article>
+  </div>
+
+  <h3>Termos que aparecem no caminho</h3>
+  <div class="card">
+    <ul>
+      <li><b>Boletim de ocorrência (BO):</b> o registro do fato na polícia. É o primeiro passo para a investigação.</li>
+      <li><b>Representação:</b> quando você declara, no BO ou ao MP, que quer que o autor seja processado. Exigida em crimes como ameaça e perseguição. Prazo: 6 meses a partir de quando você sabe quem é o autor.</li>
+      <li><b>Queixa-crime:</b> o pedido de processo feito pela própria vítima, por meio de advogado, nos crimes contra a honra. Prazo: 6 meses.</li>
+      <li><b>Ação penal pública incondicionada:</b> o Ministério Público processa o autor mesmo que a vítima não peça. É o caso do racismo e da injúria racial.</li>
+      <li><b>Inafiançável e imprescritível:</b> não se paga fiança para sair da prisão, e o crime pode ser punido a qualquer tempo.</li>
+      <li><b>Defensoria Pública:</b> instituição pública que dá orientação e defesa jurídica gratuitas a quem não pode pagar advogado (Constituição, art. 134). Cada estado tem a sua.</li>
+      <li><b>Notícia de fato:</b> o nome do registro que o Ministério Público abre quando recebe uma denúncia.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="view" id="parlamentares" aria-labelledby="h-parl" hidden>
+  <div class="eyebrow">Para cobrar providências</div>
+  <h2 id="h-parl">Parlamentares que recebem relatos</h2>
+  <p>Deputadas, deputados e vereadores podem cobrar dos órgãos competentes que os casos sejam apurados. Enviar a eles é um passo a mais e não substitui o boletim de ocorrência nem a denúncia ao Ministério Público. Antes de enviar, tire dos prints os dados de outras pessoas que não sejam necessários.</p>
+  <p style="font-size:14px;color:var(--muted)">No e-mail, conte o que aconteceu, a cidade e a data, e anexe os links e prints. Se já fez boletim de ocorrência, informe o número.</p>
+  <div class="parl" id="parlList"></div>
+  <div class="card">
+    <h3>Comissão de Direitos Humanos, Minorias e Igualdade Racial da Câmara</h3>
+    <p style="font-size:14.5px">Recebe denúncias de violação de direitos humanos de qualquer pessoa. Disque-Câmara: <span class="num">0800-0-619-619</span>.</p>
+    <div class="acts"><a role="button" class="btn outline" href="https://www2.camara.leg.br/atividade-legislativa/comissoes/comissoes-permanentes/cdhm/envio-de-denuncia" target="_blank" rel="noopener">Enviar à Comissão</a></div>
+  </div>
+</section>
+</main>
+<footer class="foot"><div class="foot-in">
+  <div>O Tem Lei orienta, mas não recebe denúncias nem guarda dados. Os botões levam a sites oficiais. Não é assessoria jurídica; para o seu caso, procure a Defensoria Pública, um advogado ou o sindicato.</div>
+  <div>As informações deste site foram reunidas e redigidas com inteligência artificial (Claude Opus 5.5, da Anthropic), a partir de leis, sites oficiais e notícias, e revisadas por Samara Fonteles. Podem conter erros ou ficar desatualizadas; confira sempre no site do órgão.</div>
+  <div>Visual feito com <a href="https://picocss.com" target="_blank" rel="noopener">Pico CSS</a>, software livre sob licença MIT.</div>
+  <div>Links conferidos em 28 de outubro de 2026. Viu um link quebrado ou uma informação errada? Escreva para <a href="mailto:temlei2026@gmail.com">temlei2026@gmail.com</a>.</div>
+</div></footer>
+
+<script>
+/* ============ PARLAMENTARES ============
+   Um item por mandato. Campos:
+   nome, cargo, partido, area (onde atua), descricao, email, telefone (opcionais), canal (link opcional).
+   Texto entre [colchetes] aparece marcado em amarelo, como pendência.
+   Lohanna e Natan: informação vinda de respostas no Instagram; confirme com os gabinetes antes de publicar. */
+const PARLAMENTARES = [
+  { nome: "Erika Hilton", cargo: "Deputada federal", partido: "PSOL-SP", area: "Todo o Brasil",
+    descricao: "Pediu à Polícia Federal, em 26 de outubro de 2026, que investigue os ataques a eleitores ocorridos depois da eleição.",
+    email: "dep.erikahilton@camara.leg.br" },
+  { nome: "Lohanna", cargo: "Deputada estadual", partido: "PV-MG", area: "Minas Gerais, com base em Divinópolis",
+    descricao: "Está divulgando o tema e recebendo relatos da região de Divinópolis.",
+    email: "dep.lohanna@almg.gov.br", telefone: "(31) 2108-5140" },
+  { nome: "Natan Oliveira Vozes", cargo: "Vereador", partido: "PDT", area: "Nova Serrana (MG)",
+    descricao: "Está reunindo relatos de moradores de Nova Serrana.",
+    email: "[contato do gabinete]" }
+];
+
+/* ============ CANAIS POR ESTADO ============
+   BO online: lista oficial do Ministério da Justiça. MP: site principal do MP estadual. */
+const SINESP = "https://delegaciavirtual.sinesp.gov.br/portal/";
+const UFS = {
+  AC:{n:"Acre",bo:SINESP,mp:"mpac",prt:"14ª Região (RO e AC)"},
+  AL:{n:"Alagoas",bo:SINESP,mp:"mpal",prt:"19ª Região"},
+  AP:{n:"Amapá",bo:SINESP,mp:"mpap",prt:"8ª Região (PA e AP)"},
+  AM:{n:"Amazonas",bo:SINESP,mp:"mpam",prt:"11ª Região (AM e RR)"},
+  BA:{n:"Bahia",bo:SINESP,mp:"mpba",prt:"5ª Região"},
+  CE:{n:"Ceará",bo:"https://www.delegaciaeletronica.ce.gov.br",mp:"mpce",prt:"7ª Região"},
+  DF:{n:"Distrito Federal",bo:"https://www.pcdf.df.gov.br/servicos/delegacia-eletronica",mp:"mpdft",mpSigla:"MPDFT",prt:"10ª Região (DF e TO)"},
+  ES:{n:"Espírito Santo",bo:"https://delegaciaonline.sesp.es.gov.br",mp:"mpes",prt:"17ª Região"},
+  GO:{n:"Goiás",bo:"https://raivirtual.ssp.go.gov.br",mp:"mpgo",prt:"18ª Região"},
+  MA:{n:"Maranhão",bo:"https://delegaciaonline.policiacivil.ma.gov.br",mp:"mpma",prt:"16ª Região"},
+  MT:{n:"Mato Grosso",bo:"https://delegaciadigital.pjc.mt.gov.br",mp:"mpmt",prt:"23ª Região"},
+  MS:{n:"Mato Grosso do Sul",bo:"http://devir.pc.ms.gov.br",mp:"mpms",prt:"24ª Região"},
+  MG:{n:"Minas Gerais",bo:"https://delegaciavirtual.sids.mg.gov.br",mp:"mpmg",prt:"3ª Região"},
+  PA:{n:"Pará",bo:"https://www.delegaciavirtual.pa.gov.br",mp:"mppa",prt:"8ª Região (PA e AP)"},
+  PB:{n:"Paraíba",bo:"https://delegaciaonline.pc.pb.gov.br",mp:"mppb",prt:"13ª Região"},
+  PR:{n:"Paraná",bo:"https://www.policiacivil.pr.gov.br/BO",mp:"mppr",prt:"9ª Região"},
+  PE:{n:"Pernambuco",bo:"https://servicos.sds.pe.gov.br/delegacia",mp:"mppe",prt:"6ª Região"},
+  PI:{n:"Piauí",bo:SINESP,mp:"mppi",prt:"22ª Região"},
+  RJ:{n:"Rio de Janeiro",bo:"https://delegaciaonline.pcivil.rj.gov.br",mp:"mprj",prt:"1ª Região"},
+  RN:{n:"Rio Grande do Norte",bo:SINESP,mp:"mprn",prt:"21ª Região"},
+  RS:{n:"Rio Grande do Sul",bo:"https://www.delegaciaonline.rs.gov.br",mp:"mprs",prt:"4ª Região"},
+  RO:{n:"Rondônia",bo:SINESP,mp:"mpro",prt:"14ª Região (RO e AC)"},
+  RR:{n:"Roraima",bo:SINESP,mp:"mprr",prt:"11ª Região (AM e RR)"},
+  SC:{n:"Santa Catarina",bo:"https://delegaciavirtual.sc.gov.br",mp:"mpsc",prt:"12ª Região"},
+  SP:{n:"São Paulo",bo:"https://www.delegaciaeletronica.policiacivil.sp.gov.br",mp:"mpsp",prt:"2ª Região (capital, Grande SP e Baixada Santista) ou 15ª Região (interior, sede em Campinas)"},
+  SE:{n:"Sergipe",bo:SINESP,mp:"mpse",prt:"20ª Região"},
+  TO:{n:"Tocantins",bo:SINESP,mp:"mpto",prt:"10ª Região (DF e TO)"}
+};
+
+/* Defensorias Públicas estaduais: lista da ANADEP. */
+const DP = {
+  AC:"https://defensoria.ac.def.br/", AL:"https://www.defensoria.al.gov.br/", AP:"https://defensoria.ap.def.br/",
+  AM:"https://defensoria.am.def.br/", BA:"https://www.defensoria.ba.def.br/", CE:"https://www.defensoria.ce.def.br/",
+  DF:"https://www.defensoria.df.gov.br/", ES:"https://www.defensoria.es.def.br/", GO:"https://www2.defensoria.go.def.br/",
+  MA:"https://defensoria.ma.def.br/", MT:"https://www.defensoriapublica.mt.gov.br/", MS:"https://www.defensoria.ms.def.br/",
+  MG:"https://defensoria.mg.def.br/", PA:"https://defensoria.pa.def.br/", PB:"https://www.defensoria.pb.gov.br/",
+  PR:"https://www.defensoriapublica.pr.def.br/", PE:"https://www.defensoria.pe.def.br/", PI:"https://www.defensoria.pi.def.br/",
+  RJ:"https://www.defensoria.rj.def.br/", RN:"https://www.defensoria.rn.def.br/", RS:"https://www.defensoria.rs.def.br/",
+  RO:"https://www.defensoria.ro.def.br/", RR:"https://www.defensoria.rr.def.br/", SC:"https://www.defensoria.sc.def.br/",
+  SP:"https://www.defensoria.sp.def.br/", SE:"https://www.defensoria.se.def.br/", TO:"https://www.defensoria.to.def.br/"
+};
+
+(function(){
+  const $ = id => document.getElementById(id);
+  const sels = document.querySelectorAll('.ufsel');
+  const ordem = Object.keys(UFS).sort((a,b)=>UFS[a].n.localeCompare(UFS[b].n,'pt'));
+  sels.forEach(sel=>ordem.forEach(k=>{
+    const o=document.createElement('option'); o.value=k; o.textContent=UFS[k].n; sel.appendChild(o);
+  }));
+
+  const mpUrl = u => "https://www." + u.mp + ".mp.br/";
+  const mpName = (k,u) => u.mpSigla || ("MP-" + k);
+  const ext = (a,href,text) => { a.href=href; a.textContent=text; a.target="_blank"; a.rel="noopener"; a.classList.remove('pick'); };
+
+  function apply(k){
+    const u = UFS[k];
+    document.querySelectorAll('[data-link]').forEach(a=>{
+      const t = a.dataset.link;
+      if(!u){ a.href="#estado"; a.removeAttribute('target'); a.classList.add('pick');
+        a.textContent = ({bo:'BO online',mp:'Ministério Público',dp:'Defensoria Pública'})[t] + ': escolha seu estado'; return; }
+      if(t==='bo') ext(a,u.bo,'BO online · '+k);
+      if(t==='mp') ext(a,mpUrl(u),mpName(k,u));
+      if(t==='dp') ext(a,DP[k],'Defensoria Pública · '+k);
+    });
+    document.querySelectorAll('[data-prt]').forEach(p=>{
+      p.textContent = u ? ('No seu estado, o caso fica com a Procuradoria Regional do Trabalho da '+u.prt+'.') : '';
+      p.hidden = !u;
+    });
+    const list = $('ufList');
+    if(!u){ $('ufName').textContent='Escolha um estado acima'; list.innerHTML='<div><dt>Boletim de ocorrência</dt><dd>Polícia Civil do seu estado</dd></div><div><dt>Ministério Público</dt><dd>MP do seu estado</dd></div><div><dt>Defensoria Pública</dt><dd>Orientação jurídica gratuita</dd></div><div><dt>Ministério Público do Trabalho</dt><dd>Procuradoria Regional do Trabalho</dd></div>'; return; }
+    $('ufName').textContent = u.n;
+    list.innerHTML = '';
+    const row = (dt, html) => { const d=document.createElement('div'); d.innerHTML='<dt>'+dt+'</dt><dd>'+html+'</dd>'; list.appendChild(d); };
+    const link = (href,txt) => '<a href="'+href+'" target="_blank" rel="noopener">'+txt+'</a>';
+    row('Boletim de ocorrência', link(u.bo, 'Delegacia online da Polícia Civil') + (u.bo===SINESP ? ' <span style="color:var(--muted)">(sistema do Ministério da Justiça; escolha '+u.n+')</span>' : ''));
+    row('Ministério Público', link(mpUrl(u), mpName(k,u)) + ' <span style="color:var(--muted)">(procure Ouvidoria)</span>');
+    row('Defensoria Pública', link(DP[k], 'Defensoria Pública do estado') + ' <span style="color:var(--muted)">(orientação jurídica gratuita)</span>');
+    row('Ministério Público do Trabalho', link('https://mpt.mp.br/assedio-eleitoral','Denúncia online') + ' <span style="color:var(--muted)">· Procuradoria Regional do Trabalho da '+u.prt+'</span>');
+  }
+
+  let saved = '';
+  try { saved = localStorage.getItem('canalponte-uf') || ''; } catch(e){}
+  const setUF = k => { sels.forEach(s=>{ s.value = k; }); apply(k); };
+  setUF(UFS[saved] ? saved : '');
+  sels.forEach(sel=>sel.addEventListener('change', ()=>{
+    setUF(sel.value);
+    try { localStorage.setItem('canalponte-uf', sel.value); } catch(e){}
+  }));
+
+  /* botão sem estado escolhido: leva ao seletor mais próximo */
+  document.addEventListener('click', e=>{
+    const a = e.target.closest('a.pick'); if(!a) return;
+    e.preventDefault();
+    const view = a.closest('.view');
+    const s = (view && view.querySelector('.ufsel')) || document.querySelector('#inicio .ufsel');
+    if(view && !view.contains(s)) location.hash = 'inicio';
+    s.scrollIntoView({block:'center'}); s.focus();
+  });
+
+  /* ============ PÁGINAS (rota pelo #) ============ */
+  const views = [...document.querySelectorAll('.view')];
+  const ids = views.map(v=>v.id);
+  const titulos = {inicio:'Tem Lei', ameaca:'Ameaça', odio:'Ataque de ódio', boicote:'Lista de boicote', trabalho:'Trabalho', provas:'Provas', canais:'Canais', glossario:'O que diz a lei', parlamentares:'Parlamentares'};
+  function rota(){
+    let h = decodeURIComponent(location.hash.slice(1));
+    let alvo = null;
+    if(h.indexOf('g-')===0){ alvo = h; h = 'glossario'; }
+    if(ids.indexOf(h)<0) h = 'inicio';
+    views.forEach(v=>{ v.hidden = v.id!==h; });
+    document.querySelectorAll('[data-nav]').forEach(a=>{
+      const atual = a.dataset.nav===h || (a.dataset.nav==='inicio' && ['ameaca','odio','boicote','trabalho'].indexOf(h)>=0);
+      if(atual) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
+    });
+    document.title = h==='inicio' ? 'Tem Lei' : titulos[h]+' · Tem Lei';
+    const el = alvo && document.getElementById(alvo);
+    requestAnimationFrame(()=>{ if(el) el.scrollIntoView({behavior:'instant', block:'start'}); else window.scrollTo({top:0, behavior:'instant'}); });
+  }
+  window.addEventListener('hashchange', rota);
+  rota();
+
+  /* parlamentares */
+  const box = $('parlList');
+  const esc = s => String(s).replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+  const ph = s => /^\[/.test(s) ? '<span class="ph">'+esc(s)+'</span>' : esc(s);
+  PARLAMENTARES.forEach(p=>{
+    const c=document.createElement('div'); c.className='card';
+    let h = '<h3>'+ph(p.nome)+'</h3>'
+      + '<p style="font-size:14px;color:var(--muted)">'+[p.cargo,p.partido,p.area].filter(Boolean).map(ph).join(' · ')+'</p>'
+      + '<p style="font-size:14.5px">'+ph(p.descricao)+'</p>';
+    if(p.email){
+      h += /^\[/.test(p.email)
+        ? '<p style="font-size:14.5px">E-mail: '+ph(p.email)+'</p>'
+        : '<div class="acts" style="align-items:center"><span class="mail">'+esc(p.email)+'</span><button type="button" class="copy outline secondary" data-copy="'+esc(p.email)+'">Copiar e-mail</button></div>';
+    }
+    if(p.telefone) h += '<p style="font-size:14.5px">Telefone do gabinete: <span class="num">'+esc(p.telefone)+'</span></p>';
+    if(p.canal) h += '<div class="acts"><a role="button" class="btn outline" href="'+esc(p.canal)+'" target="_blank" rel="noopener">Enviar relato</a></div>';
+    c.innerHTML = h;
+    box.appendChild(c);
+  });
+  box.addEventListener('click', e=>{
+    const b = e.target.closest('[data-copy]'); if(!b) return;
+    const txt = b.dataset.copy;
+    const done = () => { b.textContent='Copiado'; setTimeout(()=>{ b.textContent='Copiar e-mail'; }, 1800); };
+    const fallback = () => { const r=document.createRange(); r.selectNodeContents(b.previousElementSibling); const sl=getSelection(); sl.removeAllRanges(); sl.addRange(r); b.textContent='Selecionado: copie'; };
+    try { navigator.clipboard.writeText(txt).then(done, fallback); } catch(err){ fallback(); }
+  });
+  box.hidden = !PARLAMENTARES.length;
+})();
+</script>
+
+<script>
+/* ============ TEMA: automático / claro / escuro ============ */
+(function(){
+  var root=document.documentElement, btns=document.querySelectorAll('[data-tema]');
+  function atual(){ var t=root.getAttribute('data-theme'); return (t==='light'||t==='dark')?t:'auto'; }
+  function pinta(){ var a=atual(); btns.forEach(function(b){ var on=b.dataset.tema===a; b.setAttribute('aria-pressed',on); b.className=on?'':'outline secondary'; }); }
+  btns.forEach(function(b){ b.addEventListener('click',function(){
+    var t=b.dataset.tema;
+    if(t==='auto'){ root.removeAttribute('data-theme'); } else { root.setAttribute('data-theme',t); }
+    try{ if(t==='auto'){localStorage.removeItem('temlei-tema');} else {localStorage.setItem('temlei-tema',t);} }catch(e){}
+    pinta();
+  }); });
+  pinta();
+})();
+</script>
+
+</body>
+</html>
