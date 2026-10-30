@@ -201,6 +201,33 @@ dl.ch dd{margin:0;font-size:15px;min-width:0;overflow-wrap:anywhere}
 .foot-in{max-width:var(--shell);margin:0 auto;padding-block:20px 32px;padding-left:var(--gutter-l);padding-right:var(--gutter-r);display:grid;gap:6px;font-size:14px;color:var(--muted)}
 .foot-in div{max-width:90ch}
 @media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
+
+/* ---------- novidades (linha do tempo) ---------- */
+.news-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:12px}
+.news-head h2{margin:0 !important}
+.news-head a{font-weight:700;font-size:15px;text-decoration:none;white-space:nowrap}
+ol.timeline{list-style:none;padding:0;margin:0;display:grid;max-width:820px}
+ol.timeline>li.tl-item{list-style:none;margin:0;position:relative;display:grid;grid-template-columns:76px 1fr;gap:18px;padding:0 0 22px}
+ol.timeline>li.tl-item::before{content:"";position:absolute;left:98px;top:8px;bottom:0;width:2px;background:var(--line)}
+ol.timeline>li.tl-item:last-child::before{bottom:auto;height:0}
+.tl-date{text-align:right;display:grid;align-content:start;gap:2px;line-height:1.2;padding-top:2px}
+.tl-date b{font-size:15px;font-variant-numeric:tabular-nums;color:var(--ink)}
+.tl-date span{font-size:12.5px;color:var(--muted)}
+.tl-body{position:relative;display:grid;gap:6px;padding-left:20px;min-width:0}
+.tl-body::before{content:"";position:absolute;left:-1px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--pico-background-color)}
+.tl-tag{justify-self:start;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:2px 9px}
+.tl-body h3{font-size:17.5px}
+.tl-body p{font-size:15.5px}
+.tl-site{background:var(--accent-soft);border-radius:var(--pico-border-radius);padding:8px 12px;font-size:14.5px !important}
+.tl-src{font-size:13.5px !important;color:var(--muted)}
+ol.timeline.compact>li.tl-item{padding-bottom:14px}
+ol.timeline.compact .tl-body h3{font-size:16px;font-weight:600}
+.tl-link{position:absolute;inset:0;z-index:1}
+ol.timeline.compact>li.tl-item:hover h3{color:var(--accent)}
+@media (max-width:480px){
+  ol.timeline>li.tl-item{grid-template-columns:58px 1fr;gap:12px}
+  ol.timeline>li.tl-item::before{left:74px}
+}
 </style>
 </head>
 <body>
@@ -210,6 +237,7 @@ dl.ch dd{margin:0;font-size:15px;min-width:0;overflow-wrap:anywhere}
     <a class="brand" href="#inicio">Tem <span>Lei</span></a>
     <nav class="menu" aria-label="Páginas">
       <a href="#inicio" data-nav="inicio">Início</a>
+      <a href="#novidades" data-nav="novidades">Novidades</a>
       <a href="#provas" data-nav="provas">Provas</a>
       <a href="#glossario" data-nav="glossario">O que diz a lei</a>
       <a href="#canais" data-nav="canais">Canais</a>
@@ -245,6 +273,8 @@ dl.ch dd{margin:0;font-size:15px;min-width:0;overflow-wrap:anywhere}
     <a class="choice" href="#boicote"><b>Meu nome ou negócio está numa lista de boicote</b><span>Listas que marcam pessoas ou comércios pelo voto.</span></a>
     <a class="choice" href="#trabalho"><b>Fui demitido(a) ou pressionado(a) no trabalho</b><span>Por causa da minha posição política ou do meu voto.</span></a>
   </div>
+  <div class="news-head"><h2 class="mais">Últimas novidades</h2><a href="#novidades">Ver todas</a></div>
+  <ol class="timeline compact" id="tlHome"></ol>
   <h2 class="mais">Também neste guia</h2>
   <div class="more">
     <a class="choice" href="#provas"><b>Como guardar provas</b><span>Link, print, gravação de tela e prova com fé pública.</span></a>
@@ -252,6 +282,13 @@ dl.ch dd{margin:0;font-size:15px;min-width:0;overflow-wrap:anywhere}
     <a class="choice" href="#canais"><b>Canais oficiais</b><span>Polícia, Ministério Público, Defensoria e canais nacionais.</span></a>
     <a class="choice" href="#parlamentares"><b>Parlamentares</b><span>Mandatos que recebem relatos e cobram providências.</span></a>
   </div>
+</section>
+
+<section class="view" id="novidades" aria-labelledby="h-nov" hidden>
+  <div class="eyebrow">Linha do tempo</div>
+  <h2 id="h-nov">Novidades</h2>
+  <p>Medidas de órgãos públicos, decisões da Justiça e novos canais de ajuda desde as eleições, com o que mudou no Tem Lei por causa de cada uma. A mais recente fica no topo.</p>
+  <ol class="timeline" id="tl"></ol>
 </section>
 
 <section class="view path" id="ameaca" aria-labelledby="h-ameaca" hidden>
@@ -264,7 +301,7 @@ dl.ch dd{margin:0;font-size:15px;min-width:0;overflow-wrap:anywhere}
     <li><div class="step"><h3>Guarde as provas</h3><p>Não apague a mensagem nem responda. Faça print, copie o link e anote data e hora.</p><div class="acts"><a role="button" class="btn outline secondary int" href="#provas">Como guardar provas</a></div></div></li>
     <li><div class="step"><h3>Faça o boletim de ocorrência primeiro</h3><p>O BO é o que abre a investigação. Diga que deseja representar contra o autor; é isso que conta para o prazo de 6 meses.</p><p class="note">Se a ameaça for grave ou vier de alguém que sabe onde você mora ou trabalha, prefira ir pessoalmente a uma delegacia, levando as provas.</p><div class="acts"><a role="button" class="btn" data-link="bo" href="#estado">BO online</a></div></div></li>
     <li><div class="step"><h3>Diga no BO se a ameaça tem motivo de preconceito</h3><p>Se a ameaça cita sua cor, origem, religião, orientação sexual ou identidade de gênero, ela pode ser enquadrada também na Lei do Racismo, que é mais grave. Registre esse detalhe.</p></div></li>
-    <li><div class="step"><h3>Envie ao Ministério Público do seu estado</h3><p>Com o número do BO em mãos, use a ouvidoria ou o atendimento ao cidadão do MP para acompanhar o caso.</p><p class="note">Precisa de orientação jurídica e não pode pagar advogado? A Defensoria Pública atende de graça.</p><div class="acts"><a role="button" class="btn outline" data-link="mp" href="#estado">Ministério Público</a><a role="button" class="btn outline" data-link="dp" href="#estado">Defensoria Pública</a></div></div></li>
+    <li><div class="step"><h3>Envie ao Ministério Público do seu estado</h3><p>Com o número do BO em mãos, use a ouvidoria ou o atendimento ao cidadão do MP para acompanhar o caso.</p><p class="note">Se a ameaça é por causa da sua posição política, denuncie também no Disque 100, que tem canal específico para perseguição e violência política, 24 horas.</p><p class="note">Precisa de orientação jurídica e não pode pagar advogado? A Defensoria Pública atende de graça.</p><div class="acts"><a role="button" class="btn outline" data-link="mp" href="#estado">Ministério Público</a><a role="button" class="btn outline" data-link="dp" href="#estado">Defensoria Pública</a></div></div></li>
     <li><div class="step"><h3>Se quiser, informe parlamentares</h3><p>Eles podem cobrar providências dos órgãos. Isso não substitui o BO.</p><div class="acts"><a role="button" class="btn outline secondary int" href="#parlamentares">Parlamentares que recebem relatos</a></div></div></li>
   </ol></div>
     <aside class="side">
@@ -285,7 +322,7 @@ dl.ch dd{margin:0;font-size:15px;min-width:0;overflow-wrap:anywhere}
     <li><div class="step"><h3>Denuncie na SaferNet</h3><p>É a Central Nacional de Denúncias de Crimes Cibernéticos, que trabalha em parceria com o Ministério Público Federal. Pode ser anônimo e serve para quem só viu a publicação.</p><div class="acts"><a role="button" class="btn" href="https://www.denuncie.org.br" target="_blank" rel="noopener">Denunciar na SaferNet</a></div></div></li>
     <li><div class="step"><h3>Se você foi a pessoa atacada, faça o BO</h3><p>Leve ou anexe o link e os prints. Se não houver a opção online para esse crime, vá a uma delegacia; algumas cidades têm delegacia especializada em crimes raciais ou cibernéticos.</p><div class="acts"><a role="button" class="btn outline" data-link="bo" href="#estado">BO online</a></div></div></li>
     <li><div class="step"><h3>Envie ao Ministério Público</h3><p>O MP do seu estado recebe a notícia do crime. Você também pode enviar ao Ministério Público Federal pelo MPF Serviços, que pede login gov.br.</p><p class="note">Se você foi a vítima e quer orientação jurídica gratuita, procure a Defensoria Pública. Muitas têm núcleos de direitos humanos, igualdade racial ou diversidade.</p><div class="acts"><a role="button" class="btn outline" data-link="mp" href="#estado">Ministério Público</a><a role="button" class="btn outline" href="https://www.mpf.mp.br/mpfservicos" target="_blank" rel="noopener">MPF Serviços</a><a role="button" class="btn outline" data-link="dp" href="#estado">Defensoria Pública</a></div></div></li>
-    <li><div class="step"><h3>Se a vítima é indígena ou um povo indígena</h3><p>Envie também à Funai, pela ouvidoria, e ao Ministério Público Federal, que tem uma área dedicada a povos indígenas. A APIB e as organizações indígenas da sua região podem acompanhar o caso e dar apoio à comunidade.</p><p class="note">Ouvidoria da Funai: <span class="mail">ouvidoria@funai.gov.br</span> · <span class="num">(61) 3247-6308</span></p><div class="acts"><a role="button" class="btn outline" href="https://falabr.cgu.gov.br/web/home" target="_blank" rel="noopener">Ouvidoria da Funai (Fala.BR)</a><a role="button" class="btn outline" href="https://www.mpf.mp.br/mpfservicos" target="_blank" rel="noopener">MPF Serviços</a><a role="button" class="btn outline" href="https://apiboficial.org" target="_blank" rel="noopener">APIB</a></div></div></li>
+    <li><div class="step"><h3>Se a vítima é indígena ou um povo indígena</h3><p>Envie também ao Ministério dos Povos Indígenas, pelo Disque 100, pela plataforma Fala.BR ou pela ouvidoria do ministério, e ao Ministério Público Federal, que tem uma área dedicada a povos indígenas. A Funai também recebe denúncias. A APIB e as organizações indígenas da sua região podem acompanhar o caso e dar apoio à comunidade.</p><p class="note">Ouvidoria do Ministério dos Povos Indígenas: <span class="mail">mpi.ouv@povosindigenas.gov.br</span> · <span class="num">(61) 2020-1278</span> e <span class="num">(61) 2020-1480</span>. Ouvidoria da Funai: <span class="mail">ouvidoria@funai.gov.br</span> · <span class="num">(61) 3247-6308</span>.</p><p class="note">O WhatsApp (11) 98202-5433, divulgado antes pelo ministério, foi desativado em outubro de 2026. Não envie denúncias para ele.</p><div class="acts"><a role="button" class="btn outline" href="https://falabr.cgu.gov.br/" target="_blank" rel="noopener">Fala.BR</a><a role="button" class="btn outline" href="https://www.mpf.mp.br/mpfservicos" target="_blank" rel="noopener">MPF Serviços</a><a role="button" class="btn outline" href="https://apiboficial.org" target="_blank" rel="noopener">APIB</a></div></div></li>
     <li><div class="step"><h3>Só depois, denuncie na própria rede social</h3><p>Se a plataforma remover antes de você guardar o link e os prints, a prova se perde.</p></div></li>
     <li><div class="step"><h3>Se quiser, informe parlamentares</h3><div class="acts"><a role="button" class="btn outline secondary int" href="#parlamentares">Parlamentares que recebem relatos</a></div></div></li>
   </ol></div>
@@ -306,8 +343,8 @@ dl.ch dd{margin:0;font-size:15px;min-width:0;overflow-wrap:anywhere}
     <li><div class="step"><h3>Não responda nem compartilhe a lista</h3><p>Repassar a lista, mesmo para denunciar, espalha o dano e pode virar problema para você. Em outubro de 2026, a Justiça Federal na Paraíba condenou por racismo também quem apenas compartilhou uma publicação contra nordestinos.</p></div></li>
     <li><div class="step"><h3>Guarde as provas</h3><p>A lista, onde ela circulou (nome do grupo ou perfil, quem postou, quem administra), as mensagens hostis que você recebeu e qualquer prejuízo: clientes que cancelaram, queda de movimento, pichação. Anote datas.</p><div class="acts"><a role="button" class="btn outline secondary int" href="#provas">Como guardar provas</a></div></div></li>
     <li><div class="step"><h3>Se houve ameaça ou hostilidade, faça o BO</h3><p>Diga que deseja representar contra os autores. O prazo é de 6 meses a partir do dia em que você sabe quem são.</p><div class="acts"><a role="button" class="btn" data-link="bo" href="#estado">BO online</a></div></div></li>
-    <li><div class="step"><h3>Envie ao Ministério Público do seu estado</h3><p>Principalmente se a lista atinge muitas pessoas ou comércios da cidade.</p><div class="acts"><a role="button" class="btn outline" data-link="mp" href="#estado">Ministério Público</a></div></div></li>
-    <li><div class="step"><h3>Para pedir indenização, procure ajuda jurídica</h3><p>Um advogado ou a Defensoria Pública do seu estado, se você não puder pagar. No Juizado Especial Cível, causas de até 20 salários mínimos não precisam de advogado.</p><div class="acts"><a role="button" class="btn" data-link="dp" href="#estado">Defensoria Pública</a></div></div></li>
+    <li><div class="step"><h3>Envie ao Ministério Público do seu estado</h3><p>Principalmente se a lista atinge muitas pessoas ou comércios da cidade.</p><p class="note">Denuncie também no Disque 100 (ligue 100), que tem canal específico para perseguição e violência política, 24 horas.</p><div class="acts"><a role="button" class="btn outline" data-link="mp" href="#estado">Ministério Público</a></div></div></li>
+    <li><div class="step"><h3>Para pedir indenização, procure ajuda jurídica</h3><p>Um advogado ou a Defensoria Pública do seu estado, se você não puder pagar. No Juizado Especial Cível, causas de até 20 salários mínimos não precisam de advogado.</p><p class="note"><b>É advogada, advogado ou escritório de advocacia?</b> A OAB de São Paulo recebe denúncias de listas de boicote à advocacia. Envie capturas de tela, links e a identificação dos perfis ou grupos para <span class="mail">juridico@oabsp.org.br</span>. Em outros estados, procure a seccional da OAB.</p><div class="acts"><a role="button" class="btn" data-link="dp" href="#estado">Defensoria Pública</a></div></div></li>
     <li><div class="step"><h3>Se quiser, informe parlamentares</h3><div class="acts"><a role="button" class="btn outline secondary int" href="#parlamentares">Parlamentares que recebem relatos</a></div></div></li>
   </ol></div>
     <aside class="side">
@@ -396,10 +433,10 @@ dl.ch dd{margin:0;font-size:15px;min-width:0;overflow-wrap:anywhere}
   <h3>Canais nacionais</h3>
   <div class="nat">
     <div class="card"><h3>SaferNet</h3><p>Central Nacional de Denúncias de Crimes Cibernéticos, parceira do MPF. Anônima.</p><div class="acts"><a role="button" class="btn outline" href="https://www.denuncie.org.br" target="_blank" rel="noopener">denuncie.org.br</a></div></div>
-    <div class="card"><h3>Disque 100</h3><p>Violações de direitos humanos e discriminação. 24 horas, pode ser anônimo. Ligue <span class="num">100</span> ou use o WhatsApp <span class="num">(61) 99611-0100</span>.</p><div class="acts"><a role="button" class="btn outline" href="https://www.gov.br/mdh/pt-br/ondh" target="_blank" rel="noopener">Atendimento online</a></div></div>
+    <div class="card"><h3>Disque 100</h3><p>Violações de direitos humanos e discriminação. Tem canal específico para <b>perseguição e violência política</b> e recebe denúncias de violência contra povos indígenas. 24 horas, pode ser anônimo. Ligue <span class="num">100</span> ou use o WhatsApp <span class="num">(61) 99611-0100</span>.</p><div class="acts"><a role="button" class="btn outline" href="https://www.gov.br/mdh/pt-br/ondh" target="_blank" rel="noopener">Atendimento online</a></div></div>
     <div class="card"><h3>Assédio eleitoral no trabalho</h3><p>Demissão, ameaça ou pressão no trabalho por posição política ou voto. Denuncie ao Ministério Público do Trabalho e ao canal do Ministério do Trabalho, aberto em outubro de 2026.</p><div class="acts"><a role="button" class="btn outline" href="https://mpt.mp.br/assedio-eleitoral" target="_blank" rel="noopener">MPT</a><a role="button" class="btn outline" href="https://assedioeleitoral.trabalho.gov.br/" target="_blank" rel="noopener">Ministério do Trabalho</a></div></div>
     <div class="card"><h3>Ministério Público Federal</h3><p>Denúncias e representações pelo MPF Serviços, com login gov.br.</p><div class="acts"><a role="button" class="btn outline" href="https://www.mpf.mp.br/mpfservicos" target="_blank" rel="noopener">MPF Serviços</a></div></div>
-    <div class="card"><h3>Funai</h3><p>Fundação Nacional dos Povos Indígenas. Recebe denúncias pela ouvidoria, na plataforma Fala.BR, ou pelo e-mail <span class="mail">ouvidoria@funai.gov.br</span>.</p><div class="acts"><a role="button" class="btn outline" href="https://falabr.cgu.gov.br/web/home" target="_blank" rel="noopener">Ouvidoria (Fala.BR)</a></div></div>
+    <div class="card"><h3>Povos indígenas</h3><p>Ouvidoria do Ministério dos Povos Indígenas: <span class="mail">mpi.ouv@povosindigenas.gov.br</span>, <span class="num">(61) 2020-1278</span> e <span class="num">(61) 2020-1480</span>. Funai: <span class="mail">ouvidoria@funai.gov.br</span>. Pela internet, use a plataforma Fala.BR ou o Disque 100.</p><div class="acts"><a role="button" class="btn outline" href="https://falabr.cgu.gov.br/" target="_blank" rel="noopener">Fala.BR</a></div></div>
     <div class="card"><h3>APIB</h3><p>Articulação dos Povos Indígenas do Brasil, que reúne as organizações indígenas regionais. Acompanha e dá visibilidade a casos de violência contra indígenas.</p><div class="acts"><a role="button" class="btn outline" href="https://apiboficial.org" target="_blank" rel="noopener">apiboficial.org</a></div></div>
     <div class="card"><h3>Ligue 180</h3><p>Violência contra a mulher, inclusive ameaças e ataques misóginos. 24 horas.</p></div>
     <div class="card"><h3>Polícia Militar: 190</h3><p>Perigo imediato ou ameaça acontecendo agora.</p></div>
@@ -544,6 +581,7 @@ dl.ch dd{margin:0;font-size:15px;min-width:0;overflow-wrap:anywhere}
         <div><dt>Base legal</dt><dd>Constituição, art. 5º, VIII (ninguém pode ser privado de direitos por convicção política) e X (proteção da honra e da imagem). Código Civil, arts. 186 e 927 (quem causa dano tem de reparar).</dd></div>
         <div><dt>Pena</dt><dd>Indenização, mais as penas dos crimes que existirem no caso.</dd></div>
         <div><dt>Exemplo</dt><dd class="ex">Um grupo de WhatsApp da cidade divulga nomes de comércios "que votaram errado" e pede que ninguém compre deles. Em 2025, a Justiça de São Paulo condenou os administradores de um grupo de Cafelândia por uma lista desse tipo, com pena de reclusão e indenização a cada vítima.</dd></div>
+        <div><dt>Novidade</dt><dd>Em outubro de 2026, a OAB de São Paulo afirmou em nota pública que compartilhar listas de boicote a advogados pode gerar indenização por danos morais e materiais, como a perda de clientes, e por danos morais coletivos.</dd></div>
       </dl>
     </article>
 
@@ -617,6 +655,41 @@ dl.ch dd{margin:0;font-size:15px;min-width:0;overflow-wrap:anywhere}
 </div></footer>
 
 <script>
+/* ============ NOVIDADES (linha do tempo) ============
+   Um item por novidade, a mais recente primeiro.
+   data: AAAA-MM-DD · tipo: "Órgão público", "Justiça", "Ajuda jurídica", "Parlamentar" ou "No site"
+   site: o que mudou no Tem Lei por causa disso · link e fonte: opcionais */
+const NOVIDADES = [
+  { data:"2026-10-30", tipo:"Ajuda jurídica", titulo:"OAB SP repudia listas de boicote à advocacia e abre canal de denúncias",
+    texto:"Em nota pública, a OAB de São Paulo afirmou que compartilhar listas de boicote a advogados e escritórios por motivo ideológico-partidário pode gerar indenização por danos morais e materiais e por danos morais coletivos. Advogados citados nas listas podem enviar provas para juridico@oabsp.org.br.",
+    site:"Canal incluído no roteiro de lista de boicote; o glossário ganhou o aviso da OAB.",
+    fonte:"Perfil oficial da OAB SP no Instagram" },
+  { data:"2026-10-30", tipo:"Órgão público", titulo:"Ministério dos Povos Indígenas muda canais de denúncia; Disque 100 abre canal de violência política",
+    texto:"O WhatsApp (11) 98202-5433 foi desativado. As denúncias de violência contra povos indígenas devem ir para o Disque 100, a plataforma Fala.BR ou a ouvidoria do ministério (mpi.ouv@povosindigenas.gov.br). O Disque 100 passou a ter um canal específico para perseguição e violência política, 24 horas.",
+    site:"Canais atualizados no roteiro de ataque de ódio, nos roteiros de ameaça e lista de boicote e na página de canais.",
+    fonte:"Perfil oficial do Governo do Brasil (@govbr) no Instagram" },
+  { data:"2026-10-29", tipo:"Ajuda jurídica", titulo:"PT-SP oferece advogados voluntários para quem foi demitido ou retaliado",
+    texto:"O PT de São Paulo, com o Grupo Prerrogativas e o Setorial Jurídico do PT, abriu um formulário para atendimento jurídico gratuito a quem sofreu retaliação ou demissão pela posição política.",
+    site:"Formulário incluído no roteiro de trabalho, com aviso de que os dados ficam com o partido.",
+    link:"https://forms.gle/EUZY1S7vrdQ4xXXk7", rotulo:"Formulário" },
+  { data:"2026-10-29", tipo:"No site", titulo:"Lista de parlamentares atualizada",
+    texto:"Entraram Guilherme Cortez, Eduardo Suplicy e Nabil Bonduki, de São Paulo, e o telefone do gabinete de Erika Hilton.",
+    site:"Página de parlamentares atualizada.", link:"#parlamentares", rotulo:"Ver parlamentares" },
+  { data:"2026-10-28", tipo:"Órgão público", titulo:"Governo federal anuncia medidas contra o assédio eleitoral no trabalho",
+    texto:"O Ministério do Trabalho e Emprego, com MPT, AGU, TST, Ministério Público Eleitoral e Ministério da Justiça, abriu um canal de denúncias, reforçou a fiscalização com autuação de empresas e anunciou uma lista de empregadores envolvidos e pedidos de remoção de conteúdo de perseguição nas redes.",
+    site:"Canal do Ministério do Trabalho incluído no roteiro de trabalho, nos canais e no glossário.",
+    link:"https://www.gov.br/trabalho-e-emprego/pt-br/noticias-e-conteudo/2026/outubro/governo-do-brasil-anuncia-medidas-contra-o-assedio-eleitoral-no-trabalho", rotulo:"Notícia no gov.br" },
+  { data:"2026-10-28", tipo:"No site", titulo:"Tem Lei entra no ar",
+    texto:"Guia com roteiros para ameaça, ataque de ódio, lista de boicote e demissão por posição política; como guardar provas; glossário jurídico; e canais oficiais e Defensorias Públicas dos 27 estados." },
+  { data:"2026-10-26", tipo:"Parlamentar", titulo:"Erika Hilton pede à Polícia Federal investigação de ataques a eleitores",
+    texto:"A deputada federal pediu que a PF investigue episódios de violência contra eleitores ocorridos depois da eleição, em pelo menos dez estados.",
+    link:"https://veronoticias.com/politica/erika-pede-a-pf-apuracao-de-ataques-contra-eleitores-de-lula/", rotulo:"Notícia" },
+  { data:"2026-10-16", tipo:"Justiça", titulo:"Justiça Federal na Paraíba condena por racismo autor e quem compartilhou post contra nordestinos",
+    texto:"A sentença aplicou a Lei 7.716/1989 por discriminação de procedência e entendeu que compartilhar o conteúdo também é crime, porque amplia seu alcance.",
+    site:"Caso citado no glossário (xenofobia) e no roteiro de lista de boicote.",
+    link:"https://portaldeprefeitura.com.br/cotidiano/justica-condena-duas-pessoas-por-racismo-contra-nordestinos-numa/634295/", rotulo:"Notícia" }
+];
+
 /* ============ PARLAMENTARES ============
    Um item por mandato. Campos:
    nome, cargo, partido, area (onde atua), descricao, email, telefone (opcionais), canal (link opcional).
@@ -746,7 +819,7 @@ const DP = {
   /* ============ PÁGINAS (rota pelo #) ============ */
   const views = [...document.querySelectorAll('.view')];
   const ids = views.map(v=>v.id);
-  const titulos = {inicio:'Tem Lei', ameaca:'Ameaça', odio:'Ataque de ódio', boicote:'Lista de boicote', trabalho:'Trabalho', provas:'Provas', canais:'Canais', glossario:'O que diz a lei', parlamentares:'Parlamentares'};
+  const titulos = {inicio:'Tem Lei', novidades:'Novidades', ameaca:'Ameaça', odio:'Ataque de ódio', boicote:'Lista de boicote', trabalho:'Trabalho', provas:'Provas', canais:'Canais', glossario:'O que diz a lei', parlamentares:'Parlamentares'};
   function rota(){
     let h = decodeURIComponent(location.hash.slice(1));
     let alvo = null;
@@ -793,6 +866,25 @@ const DP = {
     try { navigator.clipboard.writeText(txt).then(done, fallback); } catch(err){ fallback(); }
   });
   box.hidden = !PARLAMENTARES.length;
+
+  /* linha do tempo */
+  const MESES=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+  const fmt = d => { const [a,m,dia]=d.split('-'); return {dia:String(+dia), mes:MESES[+m-1], ano:a}; };
+  const item = (n, compacto) => {
+    const f=fmt(n.data);
+    let h='<li class="tl-item"><div class="tl-date"><b>'+f.dia+' '+f.mes+'</b><span>'+f.ano+'</span></div><div class="tl-body">'
+      +'<span class="tl-tag">'+esc(n.tipo)+'</span><h3>'+esc(n.titulo)+'</h3>';
+    if(!compacto){
+      h+='<p>'+esc(n.texto)+'</p>';
+      if(n.site) h+='<p class="tl-site"><b>No Tem Lei:</b> '+esc(n.site)+'</p>';
+      if(n.fonte) h+='<p class="tl-src">Fonte: '+esc(n.fonte)+'</p>';
+      if(n.link) h+='<div class="acts"><a role="button" class="btn outline" href="'+esc(n.link)+'"'+(n.link.charAt(0)==='#'?'':' target="_blank" rel="noopener"')+'>'+esc(n.rotulo||'Saiba mais')+'</a></div>';
+    }
+    return h+'</div></li>';
+  };
+  const ordenadas = NOVIDADES.slice().sort((a,b)=> a.data<b.data?1:a.data>b.data?-1:0);
+  $('tl').innerHTML = ordenadas.map(n=>item(n,false)).join('');
+  $('tlHome').innerHTML = ordenadas.slice(0,3).map(n=>item(n,true).replace('<li class="tl-item">','<li class="tl-item"><a class="tl-link" href="#novidades" aria-label="Ver novidades"></a>')).join('');
 })();
 </script>
 
